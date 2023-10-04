@@ -14,9 +14,9 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 downloaddata <- function() {
-  install.packages("ggplot2")
-  install.packages("dplyr")
-  install.packages("viridis")
+  #install.packages("ggplot2")
+  #install.packages("dplyr")
+  #install.packages("viridis")
 
 
   Main_data <- read.csv("EquationCitations.csv", header = TRUE)
