@@ -52,6 +52,16 @@ find_max_of_given_column <- function(Main_data,column1) {
 
 }
 
+make_scatterplot <- function(Main_data) {
+  # Filter the rows where both "equations" and "cites" are greater than 0
+  filtered_data <- Main_data[Main_data$equations > 0 & Main_data$cites > 0, ]
+  
+  # Create a scatterplot
+  plot(filtered_data$equations, filtered_data$cites,
+       xlab = "Equations", ylab = "Citations",
+       main = "Scatterplot of Equations vs. Citations")
+}
+
 
 
 
