@@ -48,7 +48,7 @@ graph_cites_per_journal <- function(Main_data){
 find_max_of_given_column <- function(Main_data,column1) {
 
   #Main_data <- read.csv("EquationCitations.csv", header = TRUE)
-  Main_data[max(Main_data$column1), ]
+  Main_data[max(Main_data$column1)]
 
 }
 
