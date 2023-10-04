@@ -26,9 +26,9 @@ summarrize_Citations <- function(Main_data) {
   summary(Main_data)
 }
 
-Cites_per_journal <- function(df) {
+Cites_per_journal <- function(Main_data) {
   library(dplyr)
-  df %>%
+  Main_data %>%
     group_by(journal) %>%
     summarize(total_citations = sum(cites))
 
@@ -45,9 +45,9 @@ graph_cites_per_journal <- function(Main_data){
     theme_classic()
 }
 
-find_max_of_given_column <- function(column1) {
+find_max_of_given_column <- function(Main_data,column1) {
 
-  Main_data <- read.csv("EquationCitations.csv", header = TRUE)
+  #Main_data <- read.csv("EquationCitations.csv", header = TRUE)
   Main_data[which.max(Main_data$column1), ]
 
 }
