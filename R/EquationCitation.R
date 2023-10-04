@@ -50,7 +50,7 @@ make_scatterplot <- function(Main_data) {
        main = "Scatterplot of Equations vs. Citations")
 }
 
-average_pages_by_journal <- function(Main_data) {
+average_pages <- function(Main_data) {
   # Load the dplyr package if not already loaded
   library(dplyr)
   # Group the dataframe by the "journal" column and calculate the average pages
