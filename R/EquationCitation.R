@@ -40,7 +40,7 @@ summarrize_Citations <- function(Main_data) {
 #' @param Main_data A data frame containing the data.
 #' @return A data frame with journal-wise total citations.
 #'
-#' @importFrom dplyr group_by summarize
+#' @import dplyr
 #'
 #' @examples
 #' Cites_per_journal(Main_data)
@@ -98,7 +98,7 @@ make_scatterplot <- function(Main_data) {
 #'
 #' @param Main_data A data frame containing the data.
 #'
-#' @importFrom dplyr group_by summarize
+#' @import dplyr
 #'
 #' @examples
 #' average_pages(Main_data)
