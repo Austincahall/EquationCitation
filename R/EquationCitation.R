@@ -14,7 +14,7 @@ downloaddata <- function() {
   # install.packages("viridis")
   url <- 'https://github.com/Austincahall/EquationCitation/blob/main/EquationCitations.csv'
   # Read the data
-  Main_data <- read.csv("EquationCitations.csv", header = TRUE)
+  Main_data <- read.csv(url, header = TRUE)
   
   return(Main_data)
 }
