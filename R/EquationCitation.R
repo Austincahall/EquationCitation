@@ -45,12 +45,7 @@ graph_cites_per_journal <- function(Main_data){
     theme_classic()
 }
 
-find_max_of_given_column <- function(Main_data,column1) {
 
-  #Main_data <- read.csv("EquationCitations.csv", header = TRUE)
-  Main_data[max(Main_data$column1)]
-
-}
 
 make_scatterplot <- function(Main_data) {
   # Filter the rows where both "equations" and "cites" are greater than 0
@@ -61,6 +56,33 @@ make_scatterplot <- function(Main_data) {
        xlab = "Equations", ylab = "Citations",
        main = "Scatterplot of Equations vs. Citations")
 }
+
+average_pages_by_journal <- function(Main_data) {
+  # Load the dplyr package if not already loaded
+  if (!requireNamespace("dplyr", quietly = TRUE)) {
+    install.packages("dplyr")
+    library(dplyr)
+  }
+  
+  # Group the dataframe by the "journal" column and calculate the average pages
+  result <- Main_data %>%
+    group_by(journal) %>%
+    summarise(average_pages = mean(pages, na.rm = TRUE))
+  
+  return(result)
+}
+
+# Example usage:
+# Assuming your dataframe is named 'df'
+# Replace 'df' with the actual name of your dataframe
+
+
+
+
+
+
+
+
 
 
 
