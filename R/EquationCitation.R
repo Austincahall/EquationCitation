@@ -33,8 +33,8 @@ Cites_per_journal <- function(df) {
 
 }
 
-graph_cites_per_journal <- function(){
-  Main_data <- read.csv("EquationCitations.csv", header = TRUE)
+graph_cites_per_journal <- function(Main_data){
+  #Main_data <- read.csv("EquationCitations.csv", header = TRUE)
 
   library(ggplot2)
   ggplot(Main_data, aes(x = journal, y = cites)) +
