@@ -1,6 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 
-exportdownloaddata)
+export(downloaddata)
 export(summarrize_Citations)
 export(Cites_per_journal)
 export(graph_cites_per_journal)
