@@ -12,8 +12,7 @@ downloaddata <- function() {
   # install.packages("ggplot2")
   # install.packages("dplyr")
   # install.packages("viridis")
-  url <- 'https://github.com/Austincahall/EquationCitation/blob/main/EquationCitations.csv'
-  # Read the data
+  url <- 'https://github.com/Austincahall/EquationCitation/blob/main'
   Main_data <- read.csv(url, header = TRUE)
   
   return(Main_data)
