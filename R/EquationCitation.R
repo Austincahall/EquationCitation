@@ -1,29 +1,70 @@
-
-
+#' Download Data
+#'
+#' Downloads and reads data from the "EquationCitations.csv" file.
+#'
+#' @return A data frame containing the downloaded data.
+#' @importFrom utils read.csv
+#'
+#' @examples
+#' downloaddata()
+#'
 downloaddata <- function() {
-  #install.packages("ggplot2")
-  #install.packages("dplyr")
-  #install.packages("viridis")
-
-
+  # install.packages("ggplot2")
+  # install.packages("dplyr")
+  # install.packages("viridis")
+  
+  # Read the data
   Main_data <- read.csv("EquationCitations.csv", header = TRUE)
+  
+  return(Main_data)
 }
 
+#' Summarize Citations
+#'
+#' Generates a summary of the main data frame.
+#'
+#' @param Main_data A data frame containing the data to be summarized.
+#' @return Summary statistics of the data.
+#'
+#' @examples
+#' summarrize_Citations(Main_data)
+#'
 summarrize_Citations <- function(Main_data) {
   summary(Main_data)
 }
 
+#' Citations per Journal
+#'
+#' Calculates the total citations per journal(3).
+#'
+#' @param Main_data A data frame containing the data.
+#' @return A data frame with journal-wise total citations.
+#'
+#' @importFrom dplyr group_by summarize
+#'
+#' @examples
+#' Cites_per_journal(Main_data)
+#'
 Cites_per_journal <- function(Main_data) {
   library(dplyr)
   Main_data %>%
     group_by(journal) %>%
     summarize(total_citations = sum(cites))
-
 }
 
+#' Graph Citations per Journal
+#'
+#' Generates a bar graph of total citations per journal.
+#'
+#' @param Main_data A data frame containing the data.
+#' @return A ggplot2 graph object.
+#'
+#' @import ggplot2
+#'
+#' @examples
+#' graph_cites_per_journal(Main_data)
+#'
 graph_cites_per_journal <- function(Main_data){
-  #Main_data <- read.csv("EquationCitations.csv", header = TRUE)
-
   library(ggplot2)
   ggplot(Main_data, aes(x = journal, y = cites)) +
     geom_col( fill = "blue") +
@@ -32,8 +73,15 @@ graph_cites_per_journal <- function(Main_data){
     theme_classic()
 }
 
-
-
+#' Make Scatterplot
+#'
+#' Creates a scatterplot of equations vs. citations, filtering out rows with 0 equations or citations.
+#'
+#' @param Main_data A data frame containing the data.
+#'
+#' @examples
+#' make_scatterplot(Main_data)
+#'
 make_scatterplot <- function(Main_data) {
   # Filter the rows where both "equations" and "cites" are greater than 0
   filtered_data <- Main_data[Main_data$equations > 0 & Main_data$cites > 0, ]
@@ -44,6 +92,17 @@ make_scatterplot <- function(Main_data) {
        main = "Scatterplot of Equations vs. Citations")
 }
 
+#' Average Pages per Journal
+#'
+#' Calculates the average number of pages per journal.
+#'
+#' @param Main_data A data frame containing the data.
+#'
+#' @importFrom dplyr group_by summarize
+#'
+#' @examples
+#' average_pages(Main_data)
+#'
 average_pages <- function(Main_data) {
   # Load the dplyr package if not already loaded
   library(dplyr)
@@ -54,11 +113,6 @@ average_pages <- function(Main_data) {
   
   return(result)
 }
-
-# Example usage:
-# Assuming your dataframe is named 'df'
-# Replace 'df' with the actual name of your dataframe
-
 
 
 
