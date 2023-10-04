@@ -1,7 +1,4 @@
-#' @import tidyverse
-#' @import dplyr
 
-#' @export
 
 downloaddata <- function() {
   #install.packages("ggplot2")
@@ -11,10 +8,7 @@ downloaddata <- function() {
 
   Main_data <- read.csv("EquationCitations.csv", header = TRUE)
 }
-#' @import tidyverse
-#' @import dplyr
 
-#' @export
 summarrize_Citations <- function(Main_data) {
   summary(Main_data)
 }
