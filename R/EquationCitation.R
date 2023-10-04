@@ -1,17 +1,7 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+#' @import tidyverse
+#' @import dplyr
+
+#' @export
 
 downloaddata <- function() {
   #install.packages("ggplot2")
@@ -21,7 +11,10 @@ downloaddata <- function() {
 
   Main_data <- read.csv("EquationCitations.csv", header = TRUE)
 }
+#' @import tidyverse
+#' @import dplyr
 
+#' @export
 summarrize_Citations <- function(Main_data) {
   summary(Main_data)
 }
@@ -59,11 +52,7 @@ make_scatterplot <- function(Main_data) {
 
 average_pages_by_journal <- function(Main_data) {
   # Load the dplyr package if not already loaded
-  if (!requireNamespace("dplyr", quietly = TRUE)) {
-    install.packages("dplyr")
-    library(dplyr)
-  }
-  
+  library(dplyr)
   # Group the dataframe by the "journal" column and calculate the average pages
   result <- Main_data %>%
     group_by(journal) %>%
