@@ -27,6 +27,7 @@ summarrize_Citations <- function(Main_data) {
 }
 
 Cites_per_journal <- function(df) {
+  library(dplyr)
   df %>%
     group_by(journal) %>%
     summarize(total_citations = sum(cites))
